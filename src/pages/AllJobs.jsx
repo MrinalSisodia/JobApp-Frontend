@@ -9,19 +9,16 @@ const AllJobs = () => {
   const { jobs, loading, searchTerm, setSearchTerm, fetchJobs, setJobs } = useJobs();
   const inputRef = useRef(null);
 
-  // Auto-focus search bar
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
   }, [jobs]);
 
-  // ✅ Optimistic delete with Undo
   const handleDelete = async (id) => {
     const previousJobs = [...jobs];
     const deletedJob = jobs.find((job) => job._id === id);
 
-    // Instant UI update
     setJobs(jobs.filter((job) => job._id !== id));
 
     try {

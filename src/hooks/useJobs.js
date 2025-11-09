@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import { api } from "../api"; // axios instance
+import { api } from "../api";
 
 export const useJobs = () => {
   const [jobs, setJobs] = useState([]);
